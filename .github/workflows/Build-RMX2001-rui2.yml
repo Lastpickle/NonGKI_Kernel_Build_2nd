@@ -37,7 +37,7 @@ env:
   KERNELSU_AUTO_FORK : "sukisu" # magic, rsuntk and sukisu
 
   SUSFS_ENABLE : true
-  SUSFS_FIXED : false
+  SUSFS_FIXED : true
   SUSFS_UPDATE : true
 
   AK3_SOURCE : "https://github.com/lastpickle/AK3.git"
