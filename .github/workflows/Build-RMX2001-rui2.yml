@@ -40,7 +40,7 @@ env:
   SUSFS_FIXED : false
   SUSFS_UPDATE : true
 
-  AK3_SOURCE : "https://github.com/lastpickle/AnyKernel3.git"
+  AK3_SOURCE : "https://github.com/lastpickle/AK3.git"
   AK3_BRANCH : "takoyaki"
 
   BOOT_SOURCE : ""
