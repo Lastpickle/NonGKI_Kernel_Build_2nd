@@ -12,8 +12,8 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/Lastpickle/bolt_kernel.git"
-  KERNEL_BRANCH : "13.0"
+  KERNEL_SOURCE : "https://github.com/elohim-etz/android_kernel_realme_mt6785.git"
+  KERNEL_BRANCH : "bka"
 
   CLANG_SOURCE : "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git"
   CLANG_BRANCH : "15.0"
@@ -61,7 +61,7 @@ env:
   PATCHES_BRANCH: "op_kernel" # [your_branch] -> main
 
   SUSFS_FOLDER_FIXED: "RMX2001" # Fill in your patch prefix directory here. Leave it blank if there isn't one. -> your_folder
-  SUSFS_155_FIXED: "" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.5 SuSFS)
+  SUSFS_155_FIXED: "susfs_155_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.5 SuSFS)
   SUSFS_LATEST_FIXED: "ssusfs_158_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
 
   REKERNEL_ENABLE: "false" # if u need Re:Kernel.
