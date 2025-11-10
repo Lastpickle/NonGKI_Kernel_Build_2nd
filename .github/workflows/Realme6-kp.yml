@@ -12,7 +12,7 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/realme-mt6785-devs/android_kernel_realme_mt6785.Git"
+  KERNEL_SOURCE : "https://github.com/realme-mt6785-devs/android_kernel_realme_mt6785.git"
   KERNEL_BRANCH : "aex9"
 
   CLANG_SOURCE : "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git"
