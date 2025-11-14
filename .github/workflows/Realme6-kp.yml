@@ -18,7 +18,7 @@ env:
   CLANG_SOURCE : "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git"
   CLANG_BRANCH : "15.0"
 
-  GCC_GNU : false
+  GCC_GNU : true
   GCC_64_SOURCE : "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9.git"
   GCC_64_BRANCH : "android12L-release"
   GCC_32_SOURCE : "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9.git"
