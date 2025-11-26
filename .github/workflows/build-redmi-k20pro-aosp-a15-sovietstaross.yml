@@ -12,7 +12,7 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/SOVIET-ANDROID/kernel_xiaomi_raphael.git"
+  KERNEL_SOURCE : "https://github.com/JackA1ltman/kernel_xiaomi_raphael_noksu.git"
   KERNEL_BRANCH : "15.0"
 
   CLANG_SOURCE : "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
@@ -32,8 +32,8 @@ env:
   KERNELSU_SOURCE : "https://github.com/rsuntk/KernelSU.git"
   KERNELSU_BRANCH : "susfs-main"
 
-  KERNELSU_AUTO_GET : "false"
-  KERNELSU_AUTO_FORK : "" # magic, rsuntk , next and sukisu
+  KERNELSU_AUTO_GET : "true"
+  KERNELSU_AUTO_FORK : "sukisu" # magic, rsuntk , next and sukisu
 
   SUSFS_ENABLE : true
   SUSFS_FIXED : true
@@ -54,18 +54,18 @@ env:
 
   PACK_METHOD: "Anykernel3" # Anykernel3 need SOURCE and BRANCH, MKBOOTIMG needn't it.
 
-  KERNELSU_METHOD: "only" # shell, manual and only.
+  KERNELSU_METHOD: "shell" # shell, manual and only.
 
   PATCHES_SOURCE: "JackA1ltman/NonGKI_Kernel_Patches" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
   PATCHES_BRANCH: "mi_kernel" # [your_branch] -> main
 
   SUSFS_FOLDER_FIXED: "k20p_aosp_sovietstar_a15" # Fill in your patch prefix directory here. Leave it blank if there isn't one. -> your_folder
-  SUSFS_155_FIXED: "susfs_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.5 SuSFS)
+  SUSFS_155_FIXED: "susfs_155_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.5 SuSFS)
   SUSFS_LATEST_FIXED: "" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
 
   REKERNEL_ENABLE: "false" # if u need Re:Kernel.
 
-  HOOK_METHOD: "normal" # Manual hook method ->  syscall and tracepoint.
+  HOOK_METHOD: "syscall" # Manual hook method ->  syscall and tracepoint.
   HOOK_OLDER: "false" # contain backport older patch and syscall older patch.
 
   KPM_ENABLE: "false" # Only use it for SukiSU-Ultra.
@@ -115,7 +115,9 @@ jobs:
         run: |
           # Only ${{ env.DEVICE_NAME }} use it.
           cd $GITHUB_WORKSPACE/device_kernel
-          # Nothing
+
+          # Remove SuSFS from dcache
+          sed -i '/#ifdef CONFIG_KSU_SUSFS/,/#endif/d' fs/dcache.c
 
       - name: 🧰 Patch Kernel of Re:Kernel
         uses: ./.github/workflows/patch-rekernel
