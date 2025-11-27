@@ -12,7 +12,7 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/Lastpickle/bolt_kernel.git"
+  KERNEL_SOURCE : "https://github.com/Lastpickle/bolt-kernel.git"
   KERNEL_BRANCH : "14.0"
 
   CLANG_SOURCE : "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git"
@@ -126,6 +126,10 @@ jobs:
           # Build config
           echo "# CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE is not set" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
           echo "CONFIG_CC_OPTIMIZE_FOR_SIZE=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
+          
+          # build components
+          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/a5222e5a7c72c289d031a5da6ddf406a9487fc73.patch | patch -p1 -F 3
+          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/ecba44e5d13cf1eb3beb43b38cfb0e46f4e51e14.patch | patch -p1 -F 3
           
           # Nothing
 
