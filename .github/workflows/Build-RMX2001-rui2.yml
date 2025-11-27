@@ -13,7 +13,7 @@ env:
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/Lastpickle/bolt-kernel.git"
-  KERNEL_BRANCH : "14.0"
+  KERNEL_BRANCH : "13.0"
 
   CLANG_SOURCE : "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git"
   CLANG_BRANCH : "15.0"
@@ -121,22 +121,22 @@ jobs:
           cd $GITHUB_WORKSPACE/device_kernel
           
           # Revert useless spoofing
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/c460df9a3f6bf1e77b761eeb357c4eca51cda125.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/c460df9a3f6bf1e77b761eeb357c4eca51cda125.patch | patch -p1 -F 3
           
           # Build config
           echo "# CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE is not set" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
           echo "CONFIG_CC_OPTIMIZE_FOR_SIZE=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
           
           # build components
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/a5222e5a7c72c289d031a5da6ddf406a9487fc73.patch | patch -p1 -F 3
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/ecba44e5d13cf1eb3beb43b38cfb0e46f4e51e14.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/a5222e5a7c72c289d031a5da6ddf406a9487fc73.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/ecba44e5d13cf1eb3beb43b38cfb0e46f4e51e14.patch | patch -p1 -F 3
 
           # blu schedutil gov
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/1aa279221e04db241c4afba1c93a27b8d04fcefd.patch | patch -p1 -F 3
-          rm -f kernel/sched/cpufreq_blu_schedutil.c
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/7fd2666e2eab6637e6c14b849887ac428cec62d4.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/1aa279221e04db241c4afba1c93a27b8d04fcefd.patch | patch -p1 -F 3
+          # rm -f kernel/sched/cpufreq_blu_schedutil.c
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/7fd2666e2eab6637e6c14b849887ac428cec62d4.patch | patch -p1 -F 3
           # enable in defconfig
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/f91569ef53b28133fa3d470581ab3d9d552674d3.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/f91569ef53b28133fa3d470581ab3d9d552674d3.patch | patch -p1 -F 3
           
           # Nothing
 
