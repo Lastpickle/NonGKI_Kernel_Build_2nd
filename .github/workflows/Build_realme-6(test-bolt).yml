@@ -120,7 +120,7 @@ jobs:
           cd $GITHUB_WORKSPACE/device_kernel
 
           # Revert useless spoofing
-          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/c460df9a3f6bf1e77b761eeb357c4eca51cda125.patch | patch -p1 -F 3
+          # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/c460df9a3f6bf1e77b761eeb357c4eca51cda125.patch | patch -p1 -F 3
           # Nothing
 
       - name: 🧰 Patch Kernel of Re:Kernel
