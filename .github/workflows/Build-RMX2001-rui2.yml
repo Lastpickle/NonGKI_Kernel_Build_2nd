@@ -130,6 +130,13 @@ jobs:
           # build components
           curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/a5222e5a7c72c289d031a5da6ddf406a9487fc73.patch | patch -p1 -F 3
           curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/ecba44e5d13cf1eb3beb43b38cfb0e46f4e51e14.patch | patch -p1 -F 3
+
+          # blu schedutil gov
+          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/1aa279221e04db241c4afba1c93a27b8d04fcefd.patch | patch -p1 -F 3
+          rm -f kernel/sched/cpufreq_blu_schedutil.c
+          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/7fd2666e2eab6637e6c14b849887ac428cec62d4.patch | patch -p1 -F 3
+          # enable in defconfig
+          curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/f91569ef53b28133fa3d470581ab3d9d552674d3.patch | patch -p1 -F 3
           
           # Nothing
 
