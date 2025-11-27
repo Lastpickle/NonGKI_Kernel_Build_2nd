@@ -34,7 +34,7 @@ env:
   KERNELSU_NAME : ""
 
   KERNELSU_AUTO_GET : "true" # if u want easy setting kernelsu, u can true.
-  KERNELSU_AUTO_FORK : "rsuntk" # magic, rsuntk and sukisu
+  KERNELSU_AUTO_FORK : "magic" # magic, rsuntk and sukisu
 
   SUSFS_ENABLE : false
   SUSFS_FIXED : false
@@ -124,8 +124,8 @@ jobs:
           # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/c460df9a3f6bf1e77b761eeb357c4eca51cda125.patch | patch -p1 -F 3
           
           # Build config
-          echo "# CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE is not set" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
-          echo "CONFIG_CC_OPTIMIZE_FOR_SIZE=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
+          # echo "# CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE is not set" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
+          # echo "CONFIG_CC_OPTIMIZE_FOR_SIZE=y" >> ./arch/arm64/configs/${{ env.DEFCONFIG_NAME }}
           
           # build components
           # curl -Ls https://github.com/Lastpickle/Bolt_kernel/commit/a5222e5a7c72c289d031a5da6ddf406a9487fc73.patch | patch -p1 -F 3
