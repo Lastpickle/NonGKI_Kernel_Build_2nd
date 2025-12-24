@@ -112,7 +112,7 @@ jobs:
       - name: 🪝 Patch Kernel of SUSFS
         uses: ./.github/workflows/patch-susfs
 
-      - name: 🔗 Patch for no-kprobe
+     # - name: 🔗 Patch for no-kprobe
        # uses: ./.github/workflows/patch-no-kprobe
 
       - name: 🪛 Extra Kernel Options
