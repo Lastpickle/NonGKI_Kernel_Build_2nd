@@ -37,8 +37,7 @@ env:
   KERNELSU_AUTO_FORK : "rsuntk" # magic, rsuntk and sukisu
 
   SUSFS_ENABLE : true
-  SUSFS_FIXED : true
-  SUSFS_UPDATE : true
+  SUSFS_FIXED : false
 
   AK3_SOURCE : "https://github.com/osm0sis/AnyKernel3.git"
   AK3_BRANCH : "master"
@@ -61,9 +60,7 @@ env:
   PATCHES_BRANCH: "op_kernel" # [your_branch] -> main
 
   SUSFS_FOLDER_FIXED: "RMX2001" # Fill in your patch prefix directory here. Leave it blank if there isn't one. -> your_folder
-  SUSFS_155_FIXED: "sys_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.5 SuSFS)
-  SUSFS_151X_FIXED: "Taskmmu_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2 (Only v1.5.1X SuSFS)
-  SUSFS_LATEST_FIXED: "" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
+  SUSFS_PATCH_FIXED: "" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
 
   REKERNEL_ENABLE: "false" # if u need Re:Kernel.
   
@@ -112,8 +109,8 @@ jobs:
       - name: 🪝 Patch Kernel of SUSFS
         uses: ./.github/workflows/patch-susfs
 
-     # - name: 🔗 Patch for no-kprobe
-       # uses: ./.github/workflows/patch-no-kprobe
+      - name: 🔗 Patch for no-kprobe
+        uses: ./.github/workflows/patch-no-kprobe
 
       - name: 🪛 Extra Kernel Options
         run: |
